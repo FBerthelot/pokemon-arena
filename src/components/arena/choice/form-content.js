@@ -110,9 +110,10 @@ const Img = styled.img`
 `;
 
 const fetchApi = async () => {
-  const response = await fetch(`http://localhost:4200/pokemons`);
+  await timeout(1000);
+  const response = await fetch(process.env.REACT_APP_API_POKEMONS);
   const result = await response.json();
-  return result;
+  return result.results;
 };
 
 const ApiResource = createResource(fetchApi);
@@ -154,7 +155,7 @@ const FormContent = ({ history }) => {
                 />
                 <label htmlFor={`oponent1-${pokemon.name}`}>
                   <Img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +
+                    src={`${process.env.REACT_APP_API_SPRITE_PNG}${index +
                       1}.png`}
                   />
                   {pokemon.name}
@@ -177,7 +178,7 @@ const FormContent = ({ history }) => {
                 />
                 <label htmlFor={`oponent2-${pokemon.name}`}>
                   <Img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +
+                    src={`${process.env.REACT_APP_API_SPRITE_PNG}${index +
                       1}.png`}
                     alt={pokemon.name}
                   />

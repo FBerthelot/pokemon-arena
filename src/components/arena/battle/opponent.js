@@ -75,8 +75,8 @@ const LifeBarNumbers = styled.p`
 
 const getImage = (position, name) =>
   position === "first"
-    ? `http://localhost:4200/xy/back/${name}.gif`
-    : `http://localhost:4200/xy/${name}.gif`;
+    ? `${process.env.REACT_APP_API_SPRITE_BACK_GIF}${name}.gif`
+    : `${process.env.REACT_APP_API_SPRITE_FRONT_GIF}${name}.gif`;
 
 const Opponent = ({ position, data }) => (
   <>

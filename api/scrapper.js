@@ -86,7 +86,7 @@ async function scrap() {
 
   await fs.writeFile(
     path.join(__dirname, "./data/pokemons.json"),
-    JSON.stringify(pokemons)
+    JSON.stringify({results: pokemons})
   );
 }
 

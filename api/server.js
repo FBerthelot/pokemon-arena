@@ -30,7 +30,7 @@ router.get("/pokemons/stats", async ctx => {
     "utf8"
   );
   const pokemonList = JSON.parse(pokemonListJson);
-  const data = await mapSeries(pokemonList, async pokemon => {
+  const data = await mapSeries(pokemonList.results, async pokemon => {
     const json = await readFile(
       path.join(__dirname, `./data/pokemon/${pokemon.name}.json`),
       "utf8"
