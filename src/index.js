@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "./index.css";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import ErrorHandler from "./components/design-system/errors";
+// import ErrorHandler from "./components/design-system/errors";
 import Welcome from "./components/home/welcome";
 import Choice from "./components/arena/choice/choice";
 import Arena from "./components/arena/battle/arena";
@@ -31,15 +31,13 @@ const asyncRender = () => {
 
 const App = ({ async }) => (
   <BrowserRouter>
-    <ErrorHandler>
-      <Container>
-        <Route path="/" exact component={Welcome} />
-        <Route path="/arena/choice" exact component={Choice} />
-        <Route path="/arena/:first/:second" exact component={Arena} />
-        <Route path="/stats" exact component={() => <Stats async={async} />} />
-      </Container>
+    <Container>
+      <Route path="/" exact component={Welcome} />
+      <Route path="/arena/choice" exact component={Choice} />
+      <Route path="/arena/:first/:second" exact component={Arena} />
+      <Route path="/stats" exact component={() => <Stats async={async} />} />
       <Debug async={async} />
-    </ErrorHandler>
+    </Container>
   </BrowserRouter>
 );
 
